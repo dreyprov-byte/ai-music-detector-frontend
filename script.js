@@ -82,33 +82,26 @@ function handleFile(file) {
   // Локальный спектр для превью
   loadSpectrumPreview(file);
 
-  const formData = new FormData();
-  formData.append("file", file, file.name);
+ const formData = new FormData();
+// просто файл, без имени третьим параметром
+formData.append("file", file);
 
-  // Запрос к живой модели на Railway
-  fetch(API_URL, {
-    method: "POST",
-    body: formData,
+fetch(API_URL, {
+  method: "POST",
+  body: formData,
+})
+  .then((res) => res.json())
+  .then((data) => {
+    renderResult(file.name, data);
+    statusEl.textContent = "";
   })
-    .then(async (res) => {
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || `HTTP ${res.status}`);
-      }
-      return res.json();
-    })
-    .then((data) => {
-      // отрисовать результат
-      renderResult(file.name, data);
-      statusEl.textContent = "";
-    })
-    .catch((err) => {
-      console.error(err);
-      statusEl.textContent = "Ошибка предсказания: " + err.message;
-    })
-    .finally(() => {
-      loadingEl.style.display = "none";
-    });
+  .catch((err) => {
+    console.error(err);
+    statusEl.textContent = "Ошибка предсказания: " + err.message;
+  })
+  .finally(() => {
+    loadingEl.style.display = "none";
+  });
 }
 
 // Отрисовка результата из ответа модели
