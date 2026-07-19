@@ -1,5 +1,5 @@
 // URL бэкенда с живой моделью (Railway)
-const API_URL = "https://ai-music-detector-backend-production.up.railway.app";
+const API_URL = "https://ai-music-detector-backend-production.up.railway.app/predict";
 
 const fileInput = document.getElementById("fileInput");
 const fileButton = document.getElementById("fileButton");
