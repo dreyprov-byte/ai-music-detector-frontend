@@ -1,16 +1,4 @@
-/* Базовая раскладка */
-
-:root {
-  color-scheme: dark;
-  --bg: #020617;
-  --bg-soft: #0f172a;
-  --border-soft: #1f2937;
-  --text: #e5e7eb;
-  --text-muted: #9ca3af;
-  --accent: #22c55e;
-  --accent-warm: #f97316;
-  --accent-danger: #ef4444;
-}
+/* Базовые настройки */
 
 *,
 *::before,
@@ -22,112 +10,146 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Segoe UI", sans-serif;
+  font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
     radial-gradient(circle at 0% 0%, #4b5563 0, transparent 55%),
     radial-gradient(circle at 100% 100%, #4f46e5 0, transparent 55%),
     linear-gradient(135deg, #020617, #020617);
-  color: var(--text);
+  color: #e5e7eb;
 }
 
-/* Центрирование и контейнер */
+/* Общая сетка страницы */
 
-.page-wrap {
+.page {
   min-height: 100vh;
   display: flex;
-  align-items: stretch;
-  justify-content: center;
-  padding: 32px 16px;
+  flex-direction: column;
 }
 
-.app-container {
+/* Контейнер */
+
+.container {
   width: 100%;
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
-  border-radius: 24px;
-  padding: 24px;
-  background:
-    radial-gradient(circle at 10% 0%, rgba(59, 130, 246, 0.24) 0, transparent 52%),
-    radial-gradient(circle at 90% 100%, rgba(34, 197, 94, 0.18) 0, transparent 52%),
-    rgba(15, 23, 42, 0.88);
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  box-shadow:
-    0 24px 60px rgba(15, 23, 42, 0.8),
-    0 0 0 1px rgba(15, 23, 42, 0.9);
+  padding: 0 16px;
 }
 
 /* Header */
 
-.app-header {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 24px;
+.header {
+  padding: 14px 0;
 }
 
-.app-title {
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+.header-inner {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
 }
 
-.app-title-pill {
+.logo {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.header-link {
   font-size: 13px;
-  font-weight: 500;
-  padding: 4px 10px;
+  color: #a5b4fc;
+  text-decoration: none;
   border-radius: 999px;
-  border: 1px solid rgba(94, 234, 212, 0.8);
-  color: #a5f3fc;
+  border: 1px solid rgba(129, 140, 248, 0.6);
+  padding: 4px 10px;
   background:
-    linear-gradient(120deg, rgba(8, 47, 73, 0.7), rgba(22, 78, 99, 0.9)),
-    radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.35), transparent 54%);
-  box-shadow:
-    0 0 0 0.5px rgba(59, 130, 246, 0.5),
-    0 6px 16px rgba(15, 23, 42, 0.9);
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9)),
+    radial-gradient(circle at 20% 0%, rgba(129, 140, 248, 0.35), transparent 60%);
 }
 
-.app-subtitle {
-  font-size: 13px;
-  color: var(--text-muted);
+.header-link:hover {
+  border-color: rgba(196, 181, 253, 0.9);
 }
 
-/* Upload зона */
+/* Main */
 
-.upload-wrap {
+.main {
+  flex: 1;
+}
+
+/* Hero section */
+
+.section {
+  padding: 32px 0;
+}
+
+.hero-section {
+  padding-top: 16px;
+}
+
+.hero-center {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 24px;
 }
+
+/* Текст в hero */
+
+.hero-text {
+  max-width: 640px;
+}
+
+.hero-title {
+  margin: 0 0 12px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.hero-subtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+/* Блок инструмента */
+
+.hero-tool {
+  margin-top: 4px;
+  border-radius: 24px;
+  padding: 18px 18px 20px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.2) 0, transparent 52%),
+    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.2) 0, transparent 52%),
+    rgba(15, 23, 42, 0.94);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.95),
+    0 0 0 1px rgba(15, 23, 42, 1);
+}
+
+/* Upload zone */
 
 .upload-zone {
   border-radius: 18px;
-  border: 1px dashed rgba(148, 163, 184, 0.5);
+  border: 1px dashed rgba(148, 163, 184, 0.6);
   background:
-    radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.16) 0, transparent 50%),
-    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.14) 0, transparent 50%),
-    rgba(15, 23, 42, 0.9);
-  padding: 18px 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.18) 0, transparent 52%),
+    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.16) 0, transparent 52%),
+    rgba(15, 23, 42, 0.96);
+  padding: 16px 16px 18px;
   cursor: pointer;
   transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease,
-    transform 0.12s ease,
-    background 0.18s ease;
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    transform 0.1s ease,
+    background 0.16s ease;
 }
 
 .upload-zone:hover {
-  border-color: rgba(248, 250, 252, 0.8);
+  border-color: rgba(248, 250, 252, 0.9);
   box-shadow:
-    0 10px 22px rgba(15, 23, 42, 0.9),
-    0 0 0 1px rgba(148, 163, 184, 0.6);
+    0 14px 32px rgba(15, 23, 42, 0.95),
+    0 0 0 1px rgba(248, 250, 252, 0.7);
   transform: translateY(-1px);
 }
 
@@ -135,61 +157,45 @@ body {
   border-style: solid;
   border-color: rgba(96, 165, 250, 0.9);
   background:
-    radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.26) 0, transparent 52%),
-    radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.22) 0, transparent 52%),
-    rgba(17, 24, 39, 0.96);
+    radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.24) 0, transparent 52%),
+    radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.2) 0, transparent 52%),
+    rgba(17, 24, 39, 0.98);
   box-shadow:
     0 0 0 1px rgba(96, 165, 250, 0.9),
-    0 14px 34px rgba(15, 23, 42, 0.95);
+    0 18px 40px rgba(15, 23, 42, 0.98);
 }
 
-.upload-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.75);
-  background:
-    radial-gradient(circle at 30% 0%, rgba(34, 197, 94, 0.22) 0, transparent 52%),
-    linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.9));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e5e7eb;
-  box-shadow:
-    0 8px 22px rgba(15, 23, 42, 0.9),
-    0 0 0 0.5px rgba(15, 23, 42, 1);
-}
-
-.upload-copy {
-  flex: 1;
+.upload-content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 
 .upload-title {
-  font-size: 15px;
+  margin: 0;
+  font-size: 14px;
   font-weight: 500;
 }
 
 .upload-subtitle {
+  margin: 0;
   font-size: 12px;
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
-.upload-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-}
+/* Кнопка выбора файла */
 
-.upload-button {
-  border-radius: 999px;
+.btn {
+  font-family: inherit;
   border: none;
-  padding: 9px 18px;
+  border-radius: 999px;
+  padding: 8px 18px;
   font-size: 13px;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-primary {
   color: #0b1120;
   background:
     radial-gradient(circle at 0% 0%, #22c55e 0, rgba(22, 163, 74, 0.2) 32%, transparent 50%),
@@ -197,174 +203,130 @@ body {
   box-shadow:
     0 8px 24px rgba(22, 163, 74, 0.6),
     0 0 0 0.5px rgba(22, 163, 74, 0.7);
-  cursor: pointer;
-  transition:
-    transform 0.12s ease,
-    box-shadow 0.12s ease,
-    filter 0.12s ease;
+  align-self: flex-start;
 }
 
-.upload-button:hover {
-  transform: translateY(-0.5px);
-  filter: brightness(1.03);
+.btn-primary:hover {
   box-shadow:
     0 11px 30px rgba(22, 163, 74, 0.7),
     0 0 0 0.5px rgba(21, 128, 61, 0.85);
 }
 
-.upload-button:active {
-  transform: translateY(1px);
-  box-shadow:
-    0 5px 16px rgba(22, 163, 74, 0.65),
-    0 0 0 0.5px rgba(21, 128, 61, 0.9);
-}
+/* Статус + лоадер */
 
-.upload-help {
-  font-size: 11px;
-  color: var(--text-muted);
-}
-
-/* Status + Loader */
-
-.status-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.status-text {
+.status-line {
+  margin-top: 10px;
   font-size: 12px;
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
-/* loader */
+/* loading */
 
 .loading {
   display: none;
+  margin-top: 10px;
+  display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.loading-spinner {
-  width: 18px;
-  height: 18px;
+.loading-bar {
+  width: 80px;
+  height: 6px;
   border-radius: 999px;
-  border: 2px solid rgba(148, 163, 184, 0.45);
-  border-top-color: #60a5fa;
-  animation: spin 0.75s linear infinite;
+  background: rgba(15, 23, 42, 1);
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  overflow: hidden;
+}
+
+.loading-fill {
+  width: 40%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #60a5fa, #22c55e);
+  animation: loadingPulse 0.8s ease-in-out infinite alternate;
 }
 
 .loading-text {
+  margin: 0;
   font-size: 12px;
   color: #bfdbfe;
 }
 
-/* Результат */
-
-.result-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+/* Большая главная плашка */
 
 .result-main-block {
   display: none;
-  align-items: stretch;
-  gap: 16px;
-}
-
-.result-card {
-  display: none;
-  flex: 1;
-  border-radius: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.12) 0, transparent 48%),
-    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.12) 0, transparent 48%),
-    rgba(15, 23, 42, 0.92);
-  padding: 16px 14px;
-  box-shadow:
-    0 12px 30px rgba(15, 23, 42, 0.95),
-    0 0 0 0.5px rgba(15, 23, 42, 1);
-}
-
-/* Файл + плашка */
-
-.result-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.result-filename {
-  font-size: 13px;
-  font-weight: 500;
-  color: #e5e7eb;
-}
-
-.result-label-pill {
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  background:
-    radial-gradient(circle at 20% 0%, rgba(148, 163, 184, 0.35) 0, transparent 52%),
-    linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(17, 24, 39, 0.9));
-  color: #e5e7eb;
-}
-
-/* Большая центральная плашка */
-
-.result-main-pill-wrap {
-  flex: 1.4;
-  border-radius: 18px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background:
-    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.16) 0, transparent 50%),
-    radial-gradient(circle at 10% 80%, rgba(34, 197, 94, 0.2) 0, transparent 50%),
-    radial-gradient(circle at 90% 20%, rgba(250, 204, 21, 0.24) 0, transparent 50%),
-    rgba(8, 47, 73, 0.92);
-  padding: 18px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 20px 40px rgba(15, 23, 42, 0.95),
-    0 0 0 0.5px rgba(8, 47, 73, 1);
+  margin-top: 16px;
 }
 
 .result-label-pill-big {
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  display: inline-block;
   padding: 10px 18px;
   border-radius: 999px;
   border: 1px solid rgba(248, 250, 252, 0.9);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   color: #f9fafb;
   background:
-    radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.22) 0, transparent 52%),
-    radial-gradient(circle at 100% 100%, rgba(249, 115, 22, 0.18) 0, transparent 52%),
-    radial-gradient(circle at 50% 40%, rgba(59, 130, 246, 0.22) 0, transparent 60%),
-    linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.98));
+    radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.25) 0, transparent 52%),
+    radial-gradient(circle at 100% 100%, rgba(249, 115, 22, 0.2) 0, transparent 52%),
+    radial-gradient(circle at 50% 40%, rgba(59, 130, 246, 0.2) 0, transparent 60%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.98));
   box-shadow:
     0 0 0 0.7px rgba(248, 250, 252, 0.95),
     0 18px 40px rgba(15, 23, 42, 1),
     0 0 40px rgba(59, 130, 246, 0.45);
 }
 
-/* Модификаторы плашки */
+/* Карточка результата */
+
+.result-card {
+  display: none;
+  margin-top: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 14px 14px 16px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.14) 0, transparent 52%),
+    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.14) 0, transparent 52%),
+    rgba(15, 23, 42, 0.96);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-label-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  font-size: 12px;
+}
+
+.result-filename {
+  font-size: 12px;
+  color: #e5e7eb;
+}
+
+/* Модификаторы */
 
 .result-label-ai {
   border-color: rgba(74, 222, 128, 0.85);
   color: #bbf7d0;
   background:
     radial-gradient(circle at 0% 0%, rgba(22, 163, 74, 0.45) 0, transparent 58%),
-    radial-gradient(circle at 70% 100%, rgba(59, 130, 246, 0.26) 0, transparent 60%),
     linear-gradient(135deg, rgba(6, 78, 59, 0.96), rgba(6, 95, 70, 0.99));
 }
 
@@ -373,7 +335,6 @@ body {
   color: #bfdbfe;
   background:
     radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.45) 0, transparent 58%),
-    radial-gradient(circle at 70% 100%, rgba(34, 197, 94, 0.26) 0, transparent 60%),
     linear-gradient(135deg, rgba(30, 64, 175, 0.96), rgba(30, 64, 175, 0.99));
 }
 
@@ -382,23 +343,26 @@ body {
   color: #fed7aa;
   background:
     radial-gradient(circle at 0% 0%, rgba(249, 115, 22, 0.45) 0, transparent 58%),
-    radial-gradient(circle at 70% 100%, rgba(234, 179, 8, 0.26) 0, transparent 60%),
     linear-gradient(135deg, rgba(124, 45, 18, 0.96), rgba(145, 55, 21, 0.99));
 }
 
-/* Прогресс бар уверенности */
+/* Уверенность */
+
+.result-confidence {
+  font-size: 12px;
+  color: #9ca3af;
+}
 
 .result-body {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
-.result-confidence-wrap {
-  display: none;
+.result-proba-text {
   font-size: 12px;
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
 .proba-bar {
@@ -406,8 +370,9 @@ body {
   height: 6px;
   border-radius: 999px;
   background: rgba(15, 23, 42, 1);
+  border: 1px solid rgba(31, 41, 55, 0.9);
   overflow: hidden;
-  border: 1px solid rgba(31, 41, 55, 0.8);
+  margin-top: 4px;
 }
 
 .proba-fill {
@@ -421,71 +386,42 @@ body {
   transition: width 0.25s ease-out;
 }
 
-/* Комментарий */
-
 .result-comment {
+  margin: 0;
+  margin-top: 8px;
   font-size: 12px;
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
 /* Спектр */
 
-.spectrum-block {
-  border-radius: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.16) 0, transparent 52%),
-    radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.16) 0, transparent 52%),
-    rgba(15, 23, 42, 0.92);
-  padding: 12px 12px 14px;
-  box-shadow:
-    0 12px 30px rgba(15, 23, 42, 0.95),
-    0 0 0 0.5px rgba(15, 23, 42, 1);
-}
-
-.spectrum-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.spectrum-title {
-  font-size: 12px;
-  font-weight: 500;
-  color: #e5e7eb;
-}
-
 .spectrum-toggle {
+  margin-top: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(75, 85, 99, 0.8);
+  background: rgba(15, 23, 42, 0.95);
+  padding: 4px 10px;
+  font-size: 11px;
+  color: #9ca3af;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
-  color: var(--text-muted);
   cursor: pointer;
-  border-radius: 999px;
-  padding: 4px 8px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(75, 85, 99, 0.8);
-  transition:
-    background 0.12s ease,
-    border-color 0.12s ease;
 }
 
-.spectrum-toggle:hover {
-  background: rgba(15, 23, 42, 1);
-  border-color: rgba(148, 163, 184, 0.95);
+.spectrum-label {
+  font-size: 11px;
 }
 
 .spectrum-arrow {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  font-size: 11px;
   transform: rotate(0deg);
   transition: transform 0.18s ease;
 }
@@ -498,53 +434,160 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.22s ease;
+  margin-top: 10px;
 }
 
 .spectrum-panel-open {
-  max-height: 200px;
+  max-height: 220px;
 }
 
-.spectrum-canvas-wrap {
+#spectrumCanvas {
+  width: 100%;
+  height: 140px;
+  display: block;
   border-radius: 12px;
   background:
     radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.27) 0, transparent 52%),
     radial-gradient(circle at 90% 100%, rgba(249, 115, 22, 0.24) 0, transparent 52%),
     rgba(15, 23, 42, 0.98);
   border: 1px solid rgba(31, 41, 55, 0.95);
-  padding: 8px 8px 10px;
 }
 
-.spectrum-canvas {
+.spectrum-caption {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* Research sections */
+
+.research-section {
+  padding-top: 24px;
+  padding-bottom: 40px;
+}
+
+.research-block {
+  margin-bottom: 24px;
+}
+
+.section-title-large {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.section-text {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #9ca3af;
+}
+
+/* Формула */
+
+.formula-block {
+  margin-top: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 10px 12px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.16) 0, transparent 52%),
+    rgba(15, 23, 42, 0.96);
+}
+
+.formula {
+  font-family: "Menlo", "SF Mono", ui-monospace, monospace;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.formula-caption {
+  margin: 0;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Картинки */
+
+.image-row,
+.charts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.image-placeholder,
+.chart-placeholder {
+  flex: 1;
+  min-width: 200px;
+}
+
+.research-image {
   width: 100%;
-  height: 140px;
   display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+}
+
+/* Footer */
+
+.footer {
+  padding: 16px 0 20px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.footer-note {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.footer-thanks {
+  margin-top: 6px;
+}
+
+.footer-thanks-text {
+  font-size: 12px;
+  color: #9ca3af;
 }
 
 /* Адаптивность */
 
 @media (max-width: 768px) {
-  .app-container {
-    padding: 18px 16px;
+  .hero-title {
+    font-size: 22px;
   }
 
-  .upload-zone {
+  .hero-tool {
+    padding: 14px 14px 16px;
+  }
+
+  .image-row,
+  .charts-row {
+    flex-direction: column;
+  }
+
+  .footer-inner {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .upload-actions {
-    align-items: flex-start;
-  }
-
-  .result-main-block {
-    flex-direction: column;
   }
 }
 
 /* Анимации */
 
-@keyframes spin {
+@keyframes loadingPulse {
+  from {
+    transform: translateX(-20%);
+  }
   to {
-    transform: rotate(360deg);
+    transform: translateX(60%);
   }
 }
