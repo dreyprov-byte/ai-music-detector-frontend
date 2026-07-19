@@ -1,3 +1,4 @@
+// URL бэкенда с живой моделью (Railway)
 const API_URL = "https://ai-music-detector-backend-production.up.railway.app";
 
 const fileInput = document.getElementById("fileInput");
@@ -17,7 +18,7 @@ const spectrumArrow = document.getElementById("spectrumArrow");
 const spectrumPanel = document.getElementById("spectrumPanel");
 const spectrumCanvas = document.getElementById("spectrumCanvas");
 
-// Новые элементы для большой центральной плашки
+// Большая центральная плашка
 const resultMainBlock = document.getElementById("resultMainBlock");
 const resultLabelBig = document.getElementById("resultLabelBig");
 
@@ -28,6 +29,7 @@ fileButton.addEventListener("click", () => {
   fileInput.click();
 });
 
+// Выбор файла через диалог
 fileInput.addEventListener("change", () => {
   if (fileInput.files && fileInput.files[0]) {
     handleFile(fileInput.files[0]);
@@ -54,13 +56,15 @@ uploadZone.addEventListener("drop", (e) => {
   }
 });
 
+// Главная функция обработки файла
 function handleFile(file) {
+  // проверяем расширение
   if (!file.name.toLowerCase().endsWith(".mp3")) {
     statusEl.textContent = "Поддерживаются только файлы .mp3";
     return;
   }
 
-  // Сброс состояния
+  // Сброс UI
   resultCard.style.display = "none";
   resultMainBlock.style.display = "none";
   statusEl.textContent = "Отправляем файл модели…";
@@ -81,6 +85,7 @@ function handleFile(file) {
   const formData = new FormData();
   formData.append("file", file, file.name);
 
+  // Запрос к живой модели на Railway
   fetch(API_URL, {
     method: "POST",
     body: formData,
@@ -93,6 +98,7 @@ function handleFile(file) {
       return res.json();
     })
     .then((data) => {
+      // отрисовать результат
       renderResult(file.name, data);
       statusEl.textContent = "";
     })
@@ -105,13 +111,15 @@ function handleFile(file) {
     });
 }
 
+// Отрисовка результата из ответа модели
 function renderResult(filename, data) {
+  // Ожидаем формат: { label: "AI" | "REAL" | "UNSURE", proba_ai: 0.0–1.0 }
   const { label, proba_ai } = data;
   const percent = (proba_ai * 100).toFixed(2);
 
   resultFilenameEl.textContent = filename;
 
-  // Сброс классов плашек
+  // Сброс классов
   resultLabelEl.className = "result-label-pill";
   resultLabelBig.className = "result-label-pill-big";
 
@@ -156,13 +164,12 @@ function renderResult(filename, data) {
 
   resultCommentEl.textContent = commentText;
 
-  // Показываем большую плашку и карточку
+  // Показываем большую центральную плашку и карточку
   resultMainBlock.style.display = "flex";
   resultCard.style.display = "block";
 }
 
-// Спектр
-
+// Спектр — кнопка раскрытия
 spectrumToggle.addEventListener("click", () => {
   const isOpen = spectrumPanel.classList.contains("spectrum-panel-open");
   if (isOpen) {
@@ -175,6 +182,7 @@ spectrumToggle.addEventListener("click", () => {
   }
 });
 
+// Локальный спектр для превью
 function loadSpectrumPreview(file) {
   lastSpectrumData = null;
   const reader = new FileReader();
@@ -205,6 +213,7 @@ function loadSpectrumPreview(file) {
   reader.readAsArrayBuffer(file);
 }
 
+// Отрисовка спектра
 function drawSpectrum() {
   if (!spectrumCanvas || !lastSpectrumData) return;
 
@@ -219,9 +228,11 @@ function drawSpectrum() {
 
   ctx.clearRect(0, 0, width, height);
 
+  // фон
   ctx.fillStyle = "#f3f4f6";
   ctx.fillRect(0, 0, width, height);
 
+  // градиент
   const grad = ctx.createLinearGradient(0, 0, width, 0);
   grad.addColorStop(0, "#22c55e");
   grad.addColorStop(0.5, "#f97316");
