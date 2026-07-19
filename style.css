@@ -16,6 +16,7 @@ body {
     radial-gradient(circle at 100% 100%, #4f46e5 0, transparent 55%),
     linear-gradient(135deg, #020617, #020617);
   color: #e5e7eb;
+  text-align: center; /* базово центрируем текст */
 }
 
 /* Общая сетка страницы */
@@ -48,18 +49,18 @@ body {
 }
 
 .logo {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.04em;
 }
 
 .header-link {
-  font-size: 13px;
+  font-size: 14px;
   color: #a5b4fc;
   text-decoration: none;
   border-radius: 999px;
   border: 1px solid rgba(129, 140, 248, 0.6);
-  padding: 4px 10px;
+  padding: 6px 12px;
   background:
     linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9)),
     radial-gradient(circle at 20% 0%, rgba(129, 140, 248, 0.35), transparent 60%);
@@ -82,15 +83,15 @@ body {
 }
 
 .hero-section {
-  padding-top: 32px; /* чуть дальше от шапки */
+  padding-top: 24px;
 }
 
 .hero-center {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  align-items: center;  /* центрируем блок */
-  text-align: center;   /* центрируем текст */
+  align-items: center;
+  text-align: center;
 }
 
 /* Текст в hero */
@@ -101,24 +102,24 @@ body {
 
 .hero-title {
   margin: 0 0 14px;
-  font-size: 32px;      /* крупнее */
-  font-weight: 700;     /* жирнее */
+  font-size: 32px;
+  font-weight: 700;
   letter-spacing: 0.02em;
 }
 
 .hero-subtitle {
   margin: 0;
-  font-size: 15px;      /* чуть крупнее */
+  font-size: 18px;
   line-height: 1.8;
-  color: #e5e7eb;       /* ярче, чем серый */
+  color: #e5e7eb;
 }
 
 /* Блок инструмента */
 
 .hero-tool {
-  margin-top: 4px;
+  margin-top: 8px;
   border-radius: 24px;
-  padding: 18px 18px 20px;
+  padding: 20px 20px 22px;
   background:
     radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.2) 0, transparent 52%),
     radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.2) 0, transparent 52%),
@@ -138,7 +139,7 @@ body {
     radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.18) 0, transparent 52%),
     radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.16) 0, transparent 52%),
     rgba(15, 23, 42, 0.96);
-  padding: 16px 16px 18px;
+  padding: 18px 18px 20px;
   cursor: pointer;
   transition:
     border-color 0.16s ease,
@@ -170,18 +171,20 @@ body {
 .upload-content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
 }
 
 .upload-title {
   margin: 0;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .upload-subtitle {
   margin: 0;
-  font-size: 12px;
+  font-size: 16px;
   color: #9ca3af;
 }
 
@@ -191,9 +194,9 @@ body {
   font-family: inherit;
   border: none;
   border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 13px;
-  font-weight: 500;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -205,7 +208,7 @@ body {
   box-shadow:
     0 8px 24px rgba(22, 163, 74, 0.6),
     0 0 0 0.5px rgba(22, 163, 74, 0.7);
-  align-self: center; /* по центру под текстом */
+  align-self: center;
 }
 
 .btn-primary:hover {
@@ -218,7 +221,7 @@ body {
 
 .status-line {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: #9ca3af;
 }
 
@@ -229,12 +232,13 @@ body {
   margin-top: 10px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
 .loading-bar {
-  width: 80px;
-  height: 6px;
+  width: 100px;
+  height: 8px;
   border-radius: 999px;
   background: rgba(15, 23, 42, 1);
   border: 1px solid rgba(31, 41, 55, 0.9);
@@ -251,7 +255,7 @@ body {
 
 .loading-text {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   color: #bfdbfe;
 }
 
@@ -259,16 +263,16 @@ body {
 
 .result-main-block {
   display: none;
-  margin-top: 16px;
+  margin-top: 18px;
   text-align: center;
 }
 
 .result-label-pill-big {
   display: inline-block;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 999px;
   border: 1px solid rgba(248, 250, 252, 0.9);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #f9fafb;
@@ -287,10 +291,10 @@ body {
 
 .result-card {
   display: none;
-  margin-top: 14px;
+  margin-top: 16px;
   border-radius: 18px;
   border: 1px solid rgba(148, 163, 184, 0.5);
-  padding: 14px 14px 16px;
+  padding: 16px 16px 18px;
   background:
     radial-gradient(circle at 0% 0%, rgba(34, 197, 94, 0.14) 0, transparent 52%),
     radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.14) 0, transparent 52%),
@@ -312,14 +316,14 @@ body {
 
 .result-label-pill {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.7);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .result-filename {
-  font-size: 12px;
+  font-size: 14px;
   color: #e5e7eb;
 }
 
@@ -352,25 +356,25 @@ body {
 /* Уверенность */
 
 .result-confidence {
-  font-size: 12px;
+  font-size: 14px;
   color: #9ca3af;
 }
 
 .result-body {
-  margin-top: 10px;
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .result-proba-text {
-  font-size: 12px;
+  font-size: 14px;
   color: #9ca3af;
 }
 
 .proba-bar {
   width: 100%;
-  height: 6px;
+  height: 8px;
   border-radius: 999px;
   background: rgba(15, 23, 42, 1);
   border: 1px solid rgba(31, 41, 55, 0.9);
@@ -391,40 +395,40 @@ body {
 
 .result-comment {
   margin: 0;
-  margin-top: 8px;
-  font-size: 12px;
+  margin-top: 10px;
+  font-size: 14px;
   color: #9ca3af;
 }
 
 /* Спектр */
 
 .spectrum-toggle {
-  margin-top: 10px;
+  margin-top: 12px;
   border-radius: 999px;
   border: 1px solid rgba(75, 85, 99, 0.8);
   background: rgba(15, 23, 42, 0.95);
-  padding: 4px 10px;
-  font-size: 11px;
+  padding: 6px 12px;
+  font-size: 13px;
   color: #9ca3af;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   cursor: pointer;
 }
 
 .spectrum-label {
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .spectrum-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.8);
-  font-size: 11px;
+  font-size: 12px;
   transform: rotate(0deg);
   transition: transform 0.18s ease;
 }
@@ -437,7 +441,7 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.22s ease;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .spectrum-panel-open {
@@ -446,7 +450,7 @@ body {
 
 #spectrumCanvas {
   width: 100%;
-  height: 140px;
+  height: 160px;
   display: block;
   border-radius: 12px;
   background:
@@ -457,42 +461,42 @@ body {
 }
 
 .spectrum-caption {
-  margin: 8px 0 0;
-  font-size: 11px;
+  margin: 10px 0 0;
+  font-size: 13px;
   color: #9ca3af;
 }
 
 /* Research sections */
 
 .research-section {
-  padding-top: 24px;
-  padding-bottom: 40px;
+  padding-top: 28px;
+  padding-bottom: 44px;
 }
 
 .research-block {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .section-title-large {
-  margin: 0 0 10px;
-  font-size: 22px;      /* чуть крупнее */
-  font-weight: 700;     /* жирнее заголовки */
+  margin: 0 0 12px;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .section-text {
-  margin: 0 0 8px;
-  font-size: 13px;
-  line-height: 1.7;
-  color: #e5e7eb;       /* ярче, чем сильно серый */
+  margin: 0 0 10px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #e5e7eb;
 }
 
 /* Формула */
 
 .formula-block {
-  margin-top: 10px;
+  margin-top: 12px;
   border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.5);
-  padding: 10px 12px;
+  padding: 12px 14px;
   background:
     radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.16) 0, transparent 52%),
     rgba(15, 23, 42, 0.96);
@@ -500,13 +504,13 @@ body {
 
 .formula {
   font-family: "Menlo", "SF Mono", ui-monospace, monospace;
-  font-size: 14px;
-  margin-bottom: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .formula-caption {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   color: #9ca3af;
 }
 
@@ -516,14 +520,15 @@ body {
 .charts-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 14px;
+  margin-top: 12px;
+  justify-content: center;
 }
 
 .image-placeholder,
 .chart-placeholder {
   flex: 1;
-  min-width: 200px;
+  min-width: 220px;
 }
 
 .research-image {
@@ -536,7 +541,7 @@ body {
 /* Footer */
 
 .footer {
-  padding: 16px 0 20px;
+  padding: 18px 0 22px;
 }
 
 .footer-inner {
@@ -544,21 +549,21 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: 14px;
   color: #9ca3af;
 }
 
 .footer-note {
-  font-size: 12px;
+  font-size: 14px;
   color: #6b7280;
 }
 
 .footer-thanks {
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .footer-thanks-text {
-  font-size: 12px;
+  font-size: 14px;
   color: #9ca3af;
 }
 
@@ -570,12 +575,19 @@ body {
   }
 
   .hero-subtitle {
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 16px;
   }
 
   .hero-tool {
-    padding: 14px 14px 16px;
+    padding: 16px 16px 18px;
+  }
+
+  .section-title-large {
+    font-size: 22px;
+  }
+
+  .section-text {
+    font-size: 16px;
   }
 
   .image-row,
@@ -585,7 +597,8 @@ body {
 
   .footer-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 }
 
