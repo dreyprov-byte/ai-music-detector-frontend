@@ -82,33 +82,35 @@ body {
 }
 
 .hero-section {
-  padding-top: 16px;
+  padding-top: 32px; /* чуть дальше от шапки */
 }
 
 .hero-center {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  align-items: center;  /* центрируем блок */
+  text-align: center;   /* центрируем текст */
 }
 
 /* Текст в hero */
 
 .hero-text {
-  max-width: 640px;
+  max-width: 720px;
 }
 
 .hero-title {
-  margin: 0 0 12px;
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  margin: 0 0 14px;
+  font-size: 32px;      /* крупнее */
+  font-weight: 700;     /* жирнее */
+  letter-spacing: 0.02em;
 }
 
 .hero-subtitle {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #9ca3af;
+  font-size: 15px;      /* чуть крупнее */
+  line-height: 1.8;
+  color: #e5e7eb;       /* ярче, чем серый */
 }
 
 /* Блок инструмента */
@@ -203,7 +205,7 @@ body {
   box-shadow:
     0 8px 24px rgba(22, 163, 74, 0.6),
     0 0 0 0.5px rgba(22, 163, 74, 0.7);
-  align-self: flex-start;
+  align-self: center; /* по центру под текстом */
 }
 
 .btn-primary:hover {
@@ -258,6 +260,7 @@ body {
 .result-main-block {
   display: none;
   margin-top: 16px;
+  text-align: center;
 }
 
 .result-label-pill-big {
@@ -265,8 +268,8 @@ body {
   padding: 10px 18px;
   border-radius: 999px;
   border: 1px solid rgba(248, 250, 252, 0.9);
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   letter-spacing: 0.02em;
   color: #f9fafb;
   background:
@@ -472,15 +475,15 @@ body {
 
 .section-title-large {
   margin: 0 0 10px;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;      /* чуть крупнее */
+  font-weight: 700;     /* жирнее заголовки */
 }
 
 .section-text {
   margin: 0 0 8px;
   font-size: 13px;
   line-height: 1.7;
-  color: #9ca3af;
+  color: #e5e7eb;       /* ярче, чем сильно серый */
 }
 
 /* Формула */
@@ -563,7 +566,12 @@ body {
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 22px;
+    font-size: 26px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    line-height: 1.8;
   }
 
   .hero-tool {
