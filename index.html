@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Music Detector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="page">
+
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-inner">
+        <div class="logo">AI Music Detector</div>
+        <a href="https://t.me/andrevfx" class="header-link" target="_blank" rel="noopener">
+          тг канал
+        </a>
+      </div>
+    </header>
+
+
+    <!-- Основной экран -->
+    <main class="main">
+
+
+      <section class="section hero-section" id="tool">
+        <div class="container hero-center">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              Отличает, трек от&nbsp;ИИ<br />или живого музыканта
+            </h1>
+            <p class="hero-subtitle">
+              Загрузите MP3 — модель проанализирует звук и покажет, относится ли песня
+              к AI‑музыке или к реальным записям.
+            </p>
+          </div>
+
+
+          <div class="hero-tool">
+            <div class="upload-zone" id="uploadZone">
+              <div class="upload-content">
+                <p class="upload-title">Перетащите MP3 сюда или выберите файл</p>
+                <p class="upload-subtitle">Поддерживаются файлы .mp3</p>
+                <button id="fileButton" class="btn btn-primary">
+                  Выбрать файл
+                </button>
+                <input
+                  type="file"
+                  id="fileInput"
+                  accept=".mp3"
+                  hidden
+                />
+              </div>
+            </div>
+
+
+            <div class="status-line" id="status"></div>
+
+
+            <div class="loading" id="loading" style="display: none;">
+              <div class="loading-bar">
+                <div class="loading-fill"></div>
+              </div>
+              <p class="loading-text">Модель анализирует звук…</p>
+            </div>
+
+
+            <!-- Увеличенная центральная плашка результата -->
+            <div class="result-main-block" id="resultMainBlock">
+              <span class="result-label-pill-big" id="resultLabelBig"></span>
+            </div>
+
+
+            <div class="result-card" id="resultCard" style="display: none;">
+              <div class="result-header">
+                <div class="result-main">
+                  <span class="result-label-pill" id="resultLabel"></span>
+                  <span class="result-filename" id="resultFilename"></span>
+                </div>
+                <div class="result-confidence" id="resultConfidenceWrap" style="display:none;">
+                  <span id="resultConfidence"></span>
+                </div>
+              </div>
+              <div class="result-body">
+                <div class="result-proba">
+                  <span class="result-proba-text">
+                    Вероятность AI по данным модели:
+                  </span>
+                  <div class="proba-bar">
+                    <div class="proba-fill" id="probaFill"></div>
+                  </div>
+                </div>
+                <p class="result-comment" id="resultComment"></p>
+              </div>
+
+
+              <button class="spectrum-toggle" id="spectrumToggle">
+                <span class="spectrum-label">Spectrum graph</span>
+                <span class="spectrum-arrow" id="spectrumArrow">›</span>
+              </button>
+
+
+              <div class="spectrum-panel" id="spectrumPanel">
+                <canvas id="spectrumCanvas"></canvas>
+                <p class="spectrum-caption">
+                  График показывает, как энергия трека распределена по частотам.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Исследовательская часть -->
+      <section class="section research-section" id="research">
+        <div class="container">
+
+
+          <!-- 1. Простое объяснение математики -->
+          <div class="research-block">
+            <h2 class="section-title-large">Как нейросеть принимает решение</h2>
+            <p class="section-text">
+              После конвертации музыка превращается в большой набор чисел — 
+              
+            </p>
+            <p class="section-text">
+              
+              
+              каждое число описывает амплитуды/частоты во времени.
+            </p>
+            <p class="section-text">
+              Каждое число умножается переменную, выработанную во время обучения модели.
+              
+            </p>
+            <p class="section-text">
+              
+              
+              Результаты суммируются по формуле:
+            </p>
+            <div class="formula-block">
+              <div class="formula">
+                y = σ(w₁x₁ + w₂x₂ + … + wₙxₙ + b)
+              </div>
+              <p class="formula-caption">
+                x — входные данные (амплитуды спектра и коэффициенты MFCC),<br />
+                w — веса, которые модель подобрала во время обучения,<br />
+                b — смещение, σ — функция активации,<br />
+                y — итоговая вероятность принадлежности песни к одному из классов.
+              </p>
+            </div>
+          </div>
+
+
+          <br></br>
+
+
+          <!-- 2. Как звук превращается в числа + 2 изображения -->
+          <div class="research-block">
+            <h2 class="section-title-large">Как звук превращается в числа</h2>
+            <p class="section-text">
+              Модель берёт звук
+              и раскладывает его на частоты: показывает,
+              какие есть и насколько сильна каждая.
+              В итоге вместо непрерывной волны, мы получаем таблицу чисел.
+                <br />
+              Для каждой песни получается 84 числа. Модель не видит жанр или автора,
+              она работает только с этим цифровым описанием и по нему сверяется
+              с собственными факторами оценивания, которые сформировала во время обучения.
+            </p>
+
+
+            <div class="image-row">
+              <div class="image-placeholder">
+                <img src="fourierSS1.png"  class="research-image" />
+                
+              </div>
+              <div class="image-placeholder">
+                <img src="fourierSS2.png"  class="research-image" />
+                
+              </div>
+            </div>
+          </div>
+
+
+          <br></br>
+
+
+          <!-- 3. Сбор датасета -->
+          <div class="research-block">
+            <h2 class="section-title-large">Сбор датасета</h2>
+            <p class="section-text">
+              Я набирал треки по сайтам с mp3 и разным жанрам -
+              от Майкла Джексона и Сектора Газа до саундтреков к Смешарикам
+              и нейромузыки. Каждый трек размечал как REAL или AI. Всего 500 треков.
+            </p>
+
+
+            <div class="image-row">
+              <div class="image-placeholder">
+                <img src="musicSS1.png"  class="research-image" />
+                
+              </div>
+              <div class="image-placeholder">
+                <img src="musicSS2.png"  class="research-image" />
+              </div>
+            </div>
+          </div>
+
+
+          <br></br>
+
+
+          <!-- 4. Первые попытки -->
+          <div class="research-block">
+            <h2 class="section-title-large">Первые попытки</h2>
+            <p class="section-text">
+              Сначала использовал только преобразование Фурье и один нейрон <br />
+              (один вход данных - один выход 0/1), <br /> но быстро стало понятно,
+              что такой подход почти ничего не различает.
+            </p>
+          </div>
+
+
+          <div class="charts-row">
+                 <div class="chart-placeholder">
+                    <img src="codeSS1.png"  class="research-image" />
+                </div>
+                <div class="chart-placeholder">
+                     <img src="codeSS2.png" class="research-image" />
+                </div>
+            </div>
+
+
+          <br></br>
+
+
+          <!-- 5. Усложнение модели + графики -->
+          <div class="research-block">
+            <h2 class="section-title-large">Усложнение модели</h2>
+            <p class="section-text">
+              Я добавил мел‑признаки, MFCC и перешёл к многослойному перцептрону.
+              <br /> Теперь модель анализирует десятки
+              чисел одновременно и учится <br />находить более сложные закономерности.
+            </p>
+
+
+           <div class="charts-row">
+                 <div class="chart-placeholder">
+                    <img src="grafik1.png" alt="График лосса по эпохам" class="research-image" />
+                </div>
+                <div class="chart-placeholder">
+                     <img src="grafik2.png" alt="График точности по эпохам" class="research-image" />
+                </div>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© 2026 AI Music Detector</span>
+        <span class="footer-note">
+          Реальная нейронная сеть, обученная на собственном датасете из реальных и AI‑треков.
+        </span>
+      </div>
+      <div class="container footer-thanks">
+        <span class="footer-thanks-text">спасиб0 за внимание :)</span>
+      </div>
+    </footer>
+
+
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
